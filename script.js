@@ -1,37 +1,40 @@
 const searchBar = document.getElementById("searchBar");
-    const faqItems = document.querySelectorAll(".faq-item");
-    let currentlyOpen = null;
+const faqItems = document.querySelectorAll(".faq-item");
+let currentlyOpen = null;
 
-    faqItems.forEach(item => {
-      const question = item.querySelector(".question");
-      const answer = item.querySelector(".answer");
+faqItems.forEach(item => {
+  const question = item.querySelector(".question");
+  const answer = item.querySelector(".answer");
 
-      question.addEventListener("click", () => {
-        // Close any previously opened answer
-        if (currentlyOpen && currentlyOpen !== answer) {
-          currentlyOpen.style.display = "none";
-        }
+  question.addEventListener("click", () => {
+    if (currentlyOpen && currentlyOpen !== answer) {
+      currentlyOpen.style.display = "none";
+    }
 
-        // Toggle current answer
-        if (answer.style.display === "block") {
-          answer.style.display = "none";
-          currentlyOpen = null;
-        } else {
-          answer.style.display = "block";
-          currentlyOpen = answer;
-        }
-      });
-    });
+    if (answer.style.display === "block") {
+      answer.style.display = "none";
+      currentlyOpen = null;
+    } else {
+      answer.style.display = "block";
+      currentlyOpen = answer;
+    }
+  });
+});
 
-    // Filter questions
-    searchBar.addEventListener("input", function () {
-      const query = this.value.toLowerCase();
-      faqItems.forEach(item => {
-        const text = item.querySelector(".question").textContent.toLowerCase();
-        if (text.includes(query)) {
-          item.style.display = "block";
-        } else {
-          item.style.display = "none";
-        }
-      });
-    });
+searchBar.addEventListener("input", function () {
+  const query = this.value.toLowerCase();
+  faqItems.forEach(item => {
+    const text = item.querySelector(".question").textContent.toLowerCase();
+    if (text.includes(query)) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+});
+
+// Dark mode toggle
+const toggleBtn = document.getElementById("darkModeToggle");
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+});

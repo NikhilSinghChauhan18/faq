@@ -85,7 +85,6 @@ header {
   cursor: pointer;
   border-left: 4px solid #1c92d2;
   border-radius: 6px;
-  
 }
 
 .answer {
@@ -95,7 +94,63 @@ header {
   color: #333;
   background: #ffffff;
 }
-.question:hover{
+
+.question:hover {
   transition: 0.5s;
   box-shadow: 2px 2px 8px #1c92d2;
+}
+
+/* DARK MODE STYLES */
+body.dark-mode {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode header {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .hero-section {
+  background: linear-gradient(90deg, #1e1e1e 0%, #2c2c2c 100%);
+}
+
+body.dark-mode .hero-content h1 {
+  color: #f0f0f0;
+}
+
+body.dark-mode #searchBar {
+  background-color: #2c2c2c;
+  border-color: #3ea6ff;
+  color: #fff;
+}
+
+body.dark-mode .container {
+  background: #1e1e1e;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .question {
+  background: #2c2c2c;
+  color: #3ea6ff;
+  border-left-color: #3ea6ff;
+}
+
+body.dark-mode .answer {
+  background: #2c2c2c;
+  color: #ccc;
+}
+
+/* Dark mode toggle button style */
+#darkModeToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #0f161a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 999;
 }
